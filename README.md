@@ -21,3 +21,6 @@ Clone this repository, install the dependancies and start the application
 ```
 
 ### Contribution
+
+Looking for places to contribute to the codebase?
+read the [contribution guidelines](https://github.com/ganeshmani/ts-error-codes/blob/main/contribution.md).
