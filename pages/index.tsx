@@ -2,7 +2,6 @@ import fs from "fs";
 import path from "path";
 import { useState, useEffect } from "react";
 import type { NextPage } from "next";
-import Link from "next/link";
 import Head from "next/head";
 import Image from "next/image";
 import { getByCode, getAllCodes } from "@lib/content";
@@ -10,6 +9,7 @@ import { Content } from "@shared/interface";
 import styles from "../styles/Home.module.css";
 import Sidebar from "@components/Sidebar";
 import ErrorInfo from "@components/ErrorInfo";
+import Navbar from "@components/Navbar";
 //https://github.com/Microsoft/TypeScript/blob/v1.6.2/src/compiler/diagnosticMessages.json
 type Props = {
   codes: string[];
@@ -55,11 +55,7 @@ const Home: NextPage<Props> = ({ codes, allContent }) => {
 
       <div>
         <div className="sticky top-0 z-50 h-16 bg-white shadow flex">
-          <Link href="/">
-            <a className="no-underline font-semibold text-xl invisible sm:visible my-auto ml-4">
-              <h1 className="h-full">Typescript Codes</h1>
-            </a>
-          </Link>
+          <Navbar />
         </div>
         <div className="md:flex mt-16 md:w-60 md:flex-col md:fixed md:inset-y-0">
           <div className="border-r border-gray-200 flex-1 flex flex-col min-h-0 bg-white">
