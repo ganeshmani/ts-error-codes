@@ -1,15 +1,15 @@
-import fs from "fs";
-import path from "path";
-import { useState, useEffect } from "react";
-import type { NextPage } from "next";
-import Head from "next/head";
-import Image from "next/image";
-import { getByCode, getAllCodes } from "@lib/content";
-import { Content } from "@shared/interface";
-import styles from "../styles/Home.module.css";
-import Sidebar from "@components/Sidebar";
-import ErrorInfo from "@components/ErrorInfo";
-import Navbar from "@components/Navbar";
+import fs from 'fs';
+import path from 'path';
+import { useState, useEffect } from 'react';
+import type { NextPage } from 'next';
+import Head from 'next/head';
+import Image from 'next/image';
+import { getByCode, getAllCodes } from '@lib/content';
+import { Content } from '@shared/interface';
+import styles from '../styles/Home.module.css';
+import Sidebar from '@components/Sidebar';
+import ErrorInfo from '@components/ErrorInfo';
+import Navbar from '@components/Navbar';
 //https://github.com/Microsoft/TypeScript/blob/v1.6.2/src/compiler/diagnosticMessages.json
 type Props = {
   codes: string[];
@@ -24,21 +24,21 @@ const Home: NextPage<Props> = ({ codes, allContent }) => {
   useEffect(() => {
     if (selectedCode) {
       const selectedContent = allContent.find(
-        (content) => content.slug === selectedCode
+        content => content.slug === selectedCode
       );
       setSelectedContent(selectedContent ? selectedContent : null);
     }
   }, [selectedCode]);
 
   const _handleCodeClick = (code: string) => {
-    const selectedContent = allContent.find((content) => content.slug === code);
+    const selectedContent = allContent.find(content => content.slug === code);
 
     setSelectedCode(code);
     setSelectedContent(selectedContent ? selectedContent : null);
   };
 
   const _handleSearch = (value: any) => {
-    const filteredContent = codes.filter((content) => content.includes(value));
+    const filteredContent = codes.filter(content => content.includes(value));
     if (value) {
       setCodeData(filteredContent);
     } else {
@@ -79,16 +79,16 @@ const Home: NextPage<Props> = ({ codes, allContent }) => {
 
 export async function getStaticProps() {
   const allContent = await getAllCodes();
-  const codesDir = path.join(process.cwd(), "codes");
+  const codesDir = path.join(process.cwd(), 'codes');
   const files = fs.readdirSync(codesDir);
 
-  const codes = files.map((filename) => filename.replace(".md", ""));
+  const codes = files.map(filename => filename.replace('.md', ''));
 
   return {
     props: {
       codes,
-      allContent,
-    },
+      allContent
+    }
   };
 }
 

@@ -1,12 +1,12 @@
-import Head from "next/head";
-import { Content } from "@shared/interface";
+import Head from 'next/head';
+import { Content } from '@shared/interface';
 
 type Props = {
   content: Content | null;
 };
 
 const ErrorInfo: React.FC<Props> = ({ content }) => {
-  const htmlContent = content ? content.content : "";
+  const htmlContent = content ? content.content : '';
   return (
     <>
       <Head>
@@ -24,7 +24,7 @@ const ErrorInfo: React.FC<Props> = ({ content }) => {
         <article
           className="prose lg:prose-xl px-8 m-auto my-4 sm:my-16"
           dangerouslySetInnerHTML={{
-            __html: htmlContent,
+            __html: htmlContent
           }}
         />
       </div>

@@ -1,37 +1,21 @@
 module.exports = {
-  parserOptions: {
-    ecmaVersion: 2020,
-    sourceType: "module",
-    ecmaFeatures: {
-      jsx: true,
-    },
-  },
   env: {
     browser: true,
-    node: true,
-    es6: true,
-  },
-  plugins: ["simple-import-sort"],
-  settings: {
-    react: {
-      version: "detect",
-    },
+    es2021: true
   },
   extends: [
-    "eslint:recommended",
-    "plugin:jsx-a11y/recommended",
-    "plugin:react/recommended",
-    "plugin:prettier/recommended",
-    "plugin:sonarjs/recommended",
-    "plugin:unicorn/recommended",
-    "plugin:security/recommended",
-    "plugin:react-hooks/recommended",
+    'plugin:@typescript-eslint/recommended',
+    'next',
+    'next/core-web-vitals',
+    'prettier'
   ],
-  rules: {
-    "no-console": "error",
-    "react/react-in-jsx-scope": "off",
-    "react/prop-types": "off",
-    "simple-import-sort/sort": "error",
-    "unicorn/filename-case": "off",
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true
+    },
+    ecmaVersion: 12,
+    sourceType: 'module'
   },
+  plugins: ['@typescript-eslint']
 };
