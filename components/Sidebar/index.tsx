@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 type Props = {
   codes: string[];
   handleCodeClick: (code: string) => void;
@@ -10,7 +10,7 @@ const Sidebar: React.FC<Props> = ({
   codes,
   handleCodeClick,
   handleSearch,
-  selectedCode,
+  selectedCode
 }) => {
   const _handleCodeClick = (code: string) => {
     handleCodeClick(code);
@@ -35,12 +35,12 @@ const Sidebar: React.FC<Props> = ({
       </div>
 
       <ul role="list" className="divide-y mt-4 px-1">
-        {codes.map((code) => (
+        {codes.map(code => (
           <li
             onClick={() => _handleCodeClick(code)}
             key={code}
             className={`py-3 px-2 cursor-pointer text-center ${
-              code === selectedCode ? "border-l-4 border-l-indigo-500" : ""
+              code === selectedCode ? 'border-l-4 border-l-indigo-500' : ''
             }`}
           >
             TS Code:<strong>{code}</strong>
